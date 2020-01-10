@@ -598,3 +598,22 @@ export function generateWorker (availableZones, cloudProfileName, region) {
 
   return worker
 }
+
+export const TargetEnum = {
+  GARDEN: 'garden',
+  CONTROL_PLANE: 'cp',
+  SHOOT: 'shoot'
+}
+
+export function targetText (target) {
+  switch (target) {
+    case TargetEnum.CONTROL_PLANE:
+      return 'Control Plane Terminal'
+    case TargetEnum.SHOOT:
+      return 'Cluster Terminal'
+    case TargetEnum.GARDEN:
+      return 'Garden Cluster Terminal'
+    default:
+      return undefined
+  }
+}

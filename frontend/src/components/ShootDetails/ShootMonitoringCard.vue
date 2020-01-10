@@ -32,7 +32,7 @@ limitations under the License.
             :isStatusHibernated="isShootStatusHibernated"
             :isHibernationProgressing="isShootStatusHibernationProgressing"
             :reconciliationDeactivated="isShootReconciliationDeactivated"
-            :shootDeleted="isLastOperationTypeDelete"
+            :shootDeleted="isShootLastOperationTypeDelete"
             popperPlacement="bottom"
             @titleChange="onShootStatusTitleChange">
           </shoot-status>
@@ -62,7 +62,6 @@ import ShootStatus from '@/components/ShootStatus'
 import StatusTags from '@/components/StatusTags'
 import RetryOperation from '@/components/RetryOperation'
 import ClusterMetrics from '@/components/ClusterMetrics'
-import { isTypeDelete } from '@/utils'
 import { shootItem } from '@/mixins/shootItem'
 
 export default {
@@ -81,11 +80,6 @@ export default {
   data () {
     return {
       shootStatusTitle: ''
-    }
-  },
-  computed: {
-    isLastOperationTypeDelete () {
-      return isTypeDelete(this.shootLastOperation)
     }
   },
   methods: {
